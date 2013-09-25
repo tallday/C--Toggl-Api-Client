@@ -143,7 +143,7 @@ namespace Toggl.Services
 
             if (apiRequest.Args != null && apiRequest.Args.Count > 0)
             {
-                apiRequest.Args.ForEach(e => value += e.Key + "=" + e.Value + "&");
+                apiRequest.Args.ForEach(e => value += e.Key + "=" + System.Uri.EscapeDataString(e.Value) + "&");
                 value = value.Trim('&');
             }
 
